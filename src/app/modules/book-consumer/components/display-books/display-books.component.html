@@ -1,0 +1,5 @@
+<div class="container" *ngIf="this.books$ | async as books">
+    <div class="box" *ngFor="let book of books">
+        <span>{{ book.name }}</span>
+    </div>
+</div>
