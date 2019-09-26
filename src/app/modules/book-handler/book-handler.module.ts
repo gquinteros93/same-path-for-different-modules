@@ -1,23 +1,35 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { bookManagerMatcher } from '../../shared/matchers/book-manager.matcher';
-import { bookConsumerMatcher } from '../../shared/matchers/book-consumer.matcher';
+import { RouterModule, ROUTES, Routes } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      {
-        matcher: (url, group, route) => bookManagerMatcher(url, group, route),
-        loadChildren: () => import('../book-manager/book-manager.module').then(mod => mod.BookManagerModule)
-      },
-      {
-        matcher: (url, group, route) => bookConsumerMatcher(url, group, route),
-        loadChildren: () => import('../book-consumer/book-consumer.module').then(mod => mod.BookConsumerModule)
-      }
-    ])
+    RouterModule
+  ],
+  providers: [{
+      provide: ROUTES,
+      useFactory: configBookHandlerRoutes,
+      deps: [AuthService]
+    }
   ]
 })
-export class BookHandlerModule { }
+
+
+export class BookHandlerModule {}
+
+export function configBookHandlerRoutes(authService: AuthService) {
+  let routes: Routes = [];
+  if (authService.isAuthorized()) {
+    routes = [
+      {path: '', loadChildren: () => import('../book-manager/book-manager.module').then(mod => mod.BookManagerModule)}
+    ];
+  } else {
+    routes = [
+      {path: '', loadChildren: () => import('../book-consumer/book-consumer.module').then(mod => mod.BookConsumerModule)}
+    ];
+  }
+  return routes;
+}
