@@ -1,6 +1,6 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, ROUTES, Routes, RouteReuseStrategy, ActivatedRouteSnapshot, DetachedRouteHandle } from '@angular/router';
+import { RouterModule, ROUTES, Routes } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @NgModule({
