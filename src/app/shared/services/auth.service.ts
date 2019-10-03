@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private authorized: boolean;
+  public authorized$: Observable<boolean>;
+  private authorizedSource: BehaviorSubject<boolean>;
   constructor() {
-    this.authorized = false;
+    this.authorizedSource = new BehaviorSubject<boolean>(false);
+    this.authorized$ = this.authorizedSource.asObservable();
   }
-  isAuthorized(): boolean {
-    return this.authorized;
+  public isAuthorized(): boolean {
+    return this.authorizedSource.value;
+  }
+  public setAuthorized(value: boolean): void {
+    this.authorizedSource.next(value);
   }
 }

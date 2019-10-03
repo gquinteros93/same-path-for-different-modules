@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<div class="grid-container">
+    <div class="header">
+        <a [routerLink]="['/home']">home</a>
+        <a [routerLink]="['/books']">books</a>
+        <a [routerLink]="['/login']">login</a>
+    </div>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,16 +1,7 @@
 .box {
-    border: 1px solid green ;
-    margin-right: 10px;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.box:last-of-type {
-    margin-right: 0;
+    margin-left: 10px;
 }
 .container{
     display: flex;
-    direction: row;
+    flex-direction: row;
 }

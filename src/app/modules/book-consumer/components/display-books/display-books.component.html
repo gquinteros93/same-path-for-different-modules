@@ -1,5 +1,12 @@
 <div class="container" *ngIf="this.books$ | async as books">
-    <div class="box" *ngFor="let book of books">
-        <span>{{ book.name }}</span>
-    </div>
+    <mat-card class="box" *ngFor="let book of books">
+        <mat-card-header>
+            <mat-card-title>{{ book.name }}, {{ book.year }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                {{ book.description }}
+            </p>
+        </mat-card-content>
+    </mat-card>
 </div>

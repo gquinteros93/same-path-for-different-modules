@@ -16,12 +16,22 @@ export class BookService {
     return of(getData(BOOKS));
   }
 
+  public addBook(book: Book): void {
+    const books: Book[] = getData(BOOKS);
+    books.push(book);
+    this.updateBooks(books);
+  }
+
   private createInitialData(): void {
     const books: Book[] = [
       { name: 'Hamlet', description: 'It is a tragedy written by William Shakespeare', year: 1601},
       { name: 'Divine Comedy', description: 'It is a long Italian narrative poem by Dante Alighieri', year: 1320},
       { name: 'Of Love and Other Demons', description: 'It is a novel by Colombian author Gabriel García Márquez', year: 1994}
     ];
+    this.updateBooks(books);
+  }
+
+  private updateBooks(books: Book[]): void {
     saveData(BOOKS, books);
   }
 }
