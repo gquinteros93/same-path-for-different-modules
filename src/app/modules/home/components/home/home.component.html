@@ -1,5 +1,6 @@
 <div class="home-container">
     <h2>Welcome!!!</h2>
-    <h3>Go to <a [routerLink]="['/books']">books</a> page to see our books.</h3>
-    <h3>Go to <a [routerLink]="['/login']">login</a> if you are the library manager.</h3>
+    <h3 *ngIf="isManager$ | async ; else consumer_content">Go to <a [routerLink]="['/books']">books</a> page to manage our books.</h3>
+    <ng-template #consumer_content><h3>Go to <a [routerLink]="['/books']">books</a> page to see our books.</h3></ng-template>
+    <h3 *ngIf="(isManager$ | async)===false">Go to <a [routerLink]="['/login']">login</a> if you are the library manager.</h3>
 </div>

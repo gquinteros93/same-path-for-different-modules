@@ -20,16 +20,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 
 
-export class BookHandlerModule implements OnInit, OnDestroy {
-  // tslint:disable-next-line: contextual-lifecycle
-  ngOnInit() {
-    console.log('HELLO  BookHandlerModule');
-  }
-  // tslint:disable-next-line: contextual-lifecycle
-  ngOnDestroy() {
-    console.log('BYE  BookHandlerModule');
-  }
-}
+export class BookHandlerModule {}
 
 export function configBookHandlerRoutes(authService: AuthService) {
   let routes: Routes = [];
