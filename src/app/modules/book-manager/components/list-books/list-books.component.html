@@ -1,4 +1,5 @@
 <div class="container" *ngIf="this.books$ | async as books">
+    <button mat-mini-fab color="primary"><mat-icon>add</mat-icon></button>
     <table mat-table [dataSource]="books">
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -12,7 +13,6 @@
           <th mat-header-cell *matHeaderCellDef> Year </th>
           <td mat-cell *matCellDef="let element"> {{element.year}} </td>
         </ng-container>
-      
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
