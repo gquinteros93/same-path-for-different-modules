@@ -5,7 +5,8 @@ import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MyNgxFormlyModule } from 'src/app/shared/modules/my-ngx-formly/my-ngx-formly.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [ListBooksComponent],
   imports: [
@@ -13,6 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatIconModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MyNgxFormlyModule,
     RouterModule.forChild([{path: '', component: ListBooksComponent}])
   ]
 })
