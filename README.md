@@ -1,6 +1,12 @@
 # Same path for different Modules 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+This is an Angular Project where I show you how to use the same route path for different Modules.
+
+The step by step of how I did that feature is explained in any of the following links:
+- https://medium.com/@german.quinteros/angular-use-the-same-route-path-for-different-modules-or-components-11db75cac455
+- https://dev.to/gquinteros93/use-the-same-route-path-for-different-modules-or-components-in-angular-4g2i
+
+The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 
 ## Development server
 
