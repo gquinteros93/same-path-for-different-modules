@@ -1,5 +1,5 @@
 <div class="container" *ngIf="this.books$ | async as books">
-  <button mat-mini-fab color="primary" (click)="this.addFlag = !this.addModifyFlag" *ngIf="!this.addFlag">
+  <button mat-mini-fab color="primary" (click)="this.addFlag = !this.addFlag" *ngIf="!this.addFlag">
     <mat-icon>add</mat-icon>
   </button>
   <table mat-table [dataSource]="books" *ngIf="!this.addFlag">
